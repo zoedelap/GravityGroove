@@ -6,6 +6,10 @@ public class WeightSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject weightPrefab;
 
+    private GameObject mostRecentlyDropped;
+
+    public bool isPaused = false;
+
     void Update()
     {
         Vector3 mousePos2D = Input.mousePosition;
@@ -14,13 +18,22 @@ public class WeightSpawner : MonoBehaviour
         Vector3 pos = this.transform.position;
         pos.x = mousePos3D.x;
         this.transform.position = pos;
-        if (Input.GetMouseButtonDown(0)) dropWeight();
+
+        if (Input.GetMouseButtonDown(0) && !isPaused) dropWeight();
     }
 
     void dropWeight()
     {
-        print("dropping weight");
-        GameObject weight = Instantiate<GameObject>(weightPrefab);
-        weight.transform.position = transform.position;
+        mostRecentlyDropped = Instantiate<GameObject>(weightPrefab);
+        mostRecentlyDropped.transform.position = transform.position;
+    }
+
+    public void SetIsPaused(bool isPaused)
+    {
+        this.isPaused = isPaused;
+        if (isPaused )
+        {
+            Destroy(mostRecentlyDropped);
+        }
     }
 }
