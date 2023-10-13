@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class WinDetector : MonoBehaviour
 {
+
+    [SerializeField] private GameObject winScreen;
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "goal")
         {
             print("you win!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+            winScreen.SetActive(true);
         }
     }
 }
