@@ -14,6 +14,11 @@ public class ButtonController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void RestartScene() {
         print("reloading scene");
         // SceneManager.LoadScene("_scene_1");
