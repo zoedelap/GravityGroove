@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6950129060187602298}
   - component: {fileID: 3230353071401577601}
   - component: {fileID: 3024985536097464889}
-  - component: {fileID: 224790282102874280}
+  - component: {fileID: 3133188649783235798}
   m_Layer: 9
   m_Name: ball
   m_TagString: ball
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.12, y: -1.51, z: -6.07}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &224790282102874280
+--- !u!114 &3133188649783235798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ea1932562245c40a0faac0b506f500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winScreen: {fileID: 0}
