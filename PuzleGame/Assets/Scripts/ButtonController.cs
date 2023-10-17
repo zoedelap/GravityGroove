@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
+    [SerializeField] private WeightSpawner spawner;
 
-    private void Start() {
-
-    }
+    private bool isPaused = false;
 
     public void LoadNextScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
@@ -26,7 +25,22 @@ public class ButtonController : MonoBehaviour
 
     public void RestartScene() {
         print("reloading scene");
-        // SceneManager.LoadScene("_scene_1");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
+    }
+
+    public void Pause()
+    {
+        isPaused = !isPaused;
+        spawner.SetIsPaused(isPaused);
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+        // TODO: make the weights not drop if the pause button is pressed
     }
 }
