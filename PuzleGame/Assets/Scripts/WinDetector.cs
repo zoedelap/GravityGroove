@@ -12,22 +12,42 @@ public class WinDetector : MonoBehaviour
 
     private int WEIGHTS_DROPPED = 0;
 
-    private string SceneWeightsDroppedVariable;
+    private string SceneWeightsDroppedVariableName;
+    private string BestSceneWeightsDroppedVariableName;
 
     private void Start() {
-        SceneWeightsDroppedVariable = "WeightsDropped" + SceneManager.GetActiveScene().buildIndex;
+        SceneWeightsDroppedVariableName = "WeightsDropped" + SceneManager.GetActiveScene().buildIndex;
+        BestSceneWeightsDroppedVariableName = "BestWeightsDropped" + SceneManager.GetActiveScene().buildIndex;
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "goal")
         {
-            print("you win!");
+            print("completed puzzle " + SceneManager.GetActiveScene().buildIndex + " with " + WEIGHTS_DROPPED);
+
+            int currentBest = 1_000_000;
+            if (PlayerPrefs.HasKey(BestSceneWeightsDroppedVariableName))
+            {
+                currentBest = PlayerPrefs.GetInt(BestSceneWeightsDroppedVariableName);
+                print("current best for this level is " + currentBest);
+                if (WEIGHTS_DROPPED < currentBest) {
+                    PlayerPrefs.SetInt(BestSceneWeightsDroppedVariableName, WEIGHTS_DROPPED);
+                    print("set new best");
+                }
+            } else {
+                PlayerPrefs.SetInt(BestSceneWeightsDroppedVariableName, WEIGHTS_DROPPED);            
+            }
+
             winScreen.SetActive(true);
             winText = winScreen.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            winText.SetText("You won using " + WEIGHTS_DROPPED + " weights! Play again to solve the puzzle with fewer weights.");
-            PlayerPrefs.SetInt(SceneWeightsDroppedVariable, WEIGHTS_DROPPED);
-            print("completed puzzle " + SceneManager.GetActiveScene().buildIndex + " with " + WEIGHTS_DROPPED);
+            if (WEIGHTS_DROPPED < currentBest) {
+               winText.SetText("You won using " + WEIGHTS_DROPPED + " weights! You set a new best for this level.");
+            } else {
+               winText.SetText("You won using " + WEIGHTS_DROPPED + " weights! Play again to solve the puzzle with fewer weights.");
+            }
+
+            PlayerPrefs.SetInt(SceneWeightsDroppedVariableName, WEIGHTS_DROPPED);   
         }
     }
 
