@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class HighScore : MonoBehaviour
+public class OverallScoreManager : MonoBehaviour
 {
     private TextMeshProUGUI text;
     
