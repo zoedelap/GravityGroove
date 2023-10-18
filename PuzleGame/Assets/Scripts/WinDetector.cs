@@ -42,9 +42,9 @@ public class WinDetector : MonoBehaviour
             winScreen.SetActive(true);
             winText = winScreen.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             if (WEIGHTS_DROPPED < currentBest) {
-               winText.SetText("You won using " + WEIGHTS_DROPPED + " weights! You set a new best for this level.");
+               winText.SetText("You won using " + WEIGHTS_DROPPED.ToString("#,0") + " weights! You set a new best for this level.");
             } else {
-               winText.SetText("You won using " + WEIGHTS_DROPPED + " weights! Play again to solve the puzzle with fewer weights.");
+               winText.SetText("You won using " + WEIGHTS_DROPPED.ToString("#,0") + " weights! Play again to solve the puzzle with fewer weights.");
             }
 
             PlayerPrefs.SetInt(SceneWeightsDroppedVariableName, WEIGHTS_DROPPED);   
