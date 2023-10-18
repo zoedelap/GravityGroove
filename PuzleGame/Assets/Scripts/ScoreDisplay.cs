@@ -6,17 +6,28 @@ using UnityEngine.SceneManagement;
 
 public class ScoreDisplay : MonoBehaviour
 {
+    [SerializeField] private bool overallBest = false;
     private TextMeshProUGUI textElem;
 
     void Start()
     {
         textElem = GetComponent<TextMeshProUGUI>();
 
-        string BestSceneWeightsDroppedVariableName = "BestWeightsDropped" + SceneManager.GetActiveScene().buildIndex;
+        string BestWeightsDroppedVariableName;
+        if (overallBest) {
+            BestWeightsDroppedVariableName = "BestWeightsDroppedTotal";
+        } else {
+            BestWeightsDroppedVariableName = "BestWeightsDropped" + SceneManager.GetActiveScene().buildIndex;
+        }
 
         int currentBest = 1_000_000;
-        if (PlayerPrefs.HasKey(BestSceneWeightsDroppedVariableName)) currentBest = PlayerPrefs.GetInt(BestSceneWeightsDroppedVariableName);
+        if (PlayerPrefs.HasKey(BestWeightsDroppedVariableName)) currentBest = PlayerPrefs.GetInt(BestWeightsDroppedVariableName);
 
-        textElem.SetText("Current Best: " + currentBest.ToString("#,0"));
+        if (overallBest) {
+            textElem.SetText("Current Overall Best: " + currentBest.ToString("#,0"));
+        } else {
+            textElem.SetText("Current Best: " + currentBest.ToString("#,0"));
+
+        }
     }
 }
