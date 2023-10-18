@@ -26,11 +26,8 @@ public class WinDetector : MonoBehaviour
             winScreen.SetActive(true);
             winText = winScreen.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             winText.SetText("You won using " + WEIGHTS_DROPPED + " weights! Play again to solve the puzzle with fewer weights.");
-            if (PlayerPrefs.HasKey(SceneWeightsDroppedVariable))
-            {
-                WEIGHTS_DROPPED = PlayerPrefs.GetInt(SceneWeightsDroppedVariable);
-            }
             PlayerPrefs.SetInt(SceneWeightsDroppedVariable, WEIGHTS_DROPPED);
+            print("completed puzzle " + SceneManager.GetActiveScene().buildIndex + " with " + WEIGHTS_DROPPED);
         }
     }
 
