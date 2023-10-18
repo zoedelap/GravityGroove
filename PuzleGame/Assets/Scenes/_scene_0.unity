@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -372,8 +372,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 60}
-  m_SizeDelta: {x: 750, y: 250}
+  m_AnchoredPosition: {x: 0, y: 160}
+  m_SizeDelta: {x: 1100, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &476843073
 MonoBehaviour:
@@ -395,7 +395,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You win!
+  m_text: You won using 999 weights! Play again to solve the puzzle with fewer weights.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1eabd4976d6c2ee49ac21634ae306780, type: 2}
   m_sharedMaterial: {fileID: 7976556025572044046, guid: 1eabd4976d6c2ee49ac21634ae306780, type: 2}
@@ -422,14 +422,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 97.46
-  m_fontSizeBase: 97.46
+  m_fontSize: 71
+  m_fontSizeBase: 71
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 32
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -893,7 +893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weightPrefab: {fileID: 2644384993114688153, guid: 9de47409712ac6149b9cea7825e93537, type: 3}
-  isPaused: 0
+  winDetector: {fileID: 1040984450}
 --- !u!1 &979341939
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,6 +987,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4776c061f4695b41b2e290ea7a1bee0, type: 3}
+--- !u!114 &1040984450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3133188649783235798, guid: 315f896f5e4d7b6498f86abcdca8813b, type: 3}
+  m_PrefabInstance: {fileID: 7754193546128910368}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ea1932562245c40a0faac0b506f500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1052995402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,7 +1686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -60}
+  m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 800, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1957940576

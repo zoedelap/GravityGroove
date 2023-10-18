@@ -5,10 +5,11 @@ using UnityEngine;
 public class WeightSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject weightPrefab;
+    [SerializeField] private WinDetector winDetector;
 
     private GameObject mostRecentlyDropped;
 
-    public bool isPaused = false;
+    private bool isPaused = false;
 
     void Update()
     {
@@ -26,6 +27,7 @@ public class WeightSpawner : MonoBehaviour
     {
         mostRecentlyDropped = Instantiate<GameObject>(weightPrefab);
         mostRecentlyDropped.transform.position = transform.position;
+        winDetector.IncrementScore();
     }
 
     public void SetIsPaused(bool isPaused)
