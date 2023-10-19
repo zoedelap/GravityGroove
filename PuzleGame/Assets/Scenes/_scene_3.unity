@@ -2440,18 +2440,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: level three puzzle
       objectReference: {fileID: 0}
-    - target: {fileID: 5107098240544471640, guid: c38718a9bfe0ca44fa123a73798f3080, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0708
-      objectReference: {fileID: 0}
-    - target: {fileID: 8059428318993314660, guid: c38718a9bfe0ca44fa123a73798f3080, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0311
-      objectReference: {fileID: 0}
-    - target: {fileID: 8059428318993314660, guid: c38718a9bfe0ca44fa123a73798f3080, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0766
-      objectReference: {fileID: 0}
     - target: {fileID: 8263441798492798395, guid: c38718a9bfe0ca44fa123a73798f3080, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2571,6 +2559,10 @@ PrefabInstance:
       propertyPath: winScreen
       value: 
       objectReference: {fileID: 241432443}
+    - target: {fileID: 7035047035162623542, guid: 315f896f5e4d7b6498f86abcdca8813b, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 949543159}
     - target: {fileID: 8235616277149507039, guid: 315f896f5e4d7b6498f86abcdca8813b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.12

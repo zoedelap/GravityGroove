@@ -15,9 +15,13 @@ public class WinDetector : MonoBehaviour
     private string SceneWeightsDroppedVariableName;
     private string BestSceneWeightsDroppedVariableName;
 
+    private ButtonController buttonController;
+
     private void Start() {
         SceneWeightsDroppedVariableName = "WeightsDropped" + SceneManager.GetActiveScene().buildIndex;
         BestSceneWeightsDroppedVariableName = "BestWeightsDropped" + SceneManager.GetActiveScene().buildIndex;
+
+        buttonController = GetComponent<ButtonController>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -25,6 +29,8 @@ public class WinDetector : MonoBehaviour
         if (collision.gameObject.tag == "goal")
         {
             print("completed puzzle " + SceneManager.GetActiveScene().buildIndex + " with " + WEIGHTS_DROPPED);
+
+            buttonController.Pause();
 
             int currentBest = 1_000_000;
             if (PlayerPrefs.HasKey(BestSceneWeightsDroppedVariableName))

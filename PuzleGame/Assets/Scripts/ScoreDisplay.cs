@@ -27,7 +27,6 @@ public class ScoreDisplay : MonoBehaviour
             textElem.SetText("Current Overall Best: " + currentBest.ToString("#,0"));
         } else {
             textElem.SetText("Current Best: " + currentBest.ToString("#,0"));
-
         }
     }
 }

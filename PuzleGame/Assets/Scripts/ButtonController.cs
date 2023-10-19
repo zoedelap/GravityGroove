@@ -11,6 +11,7 @@ public class ButtonController : MonoBehaviour
 
     public void LoadNextScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        Time.timeScale = 1;
     }
 
     public void LoadMainMenu()
@@ -41,6 +42,5 @@ public class ButtonController : MonoBehaviour
         {
             Time.timeScale = 1;
         }
-        // TODO: make the weights not drop if the pause button is pressed
     }
 }
