@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class AudioPreserver : MonoBehaviour
 {
-    private void Awake() {
-        DontDestroyOnLoad(transform.gameObject);
-    }
+    private GameObject[] music;
+ 
+ 	void Start(){
+ 		music = GameObject.FindGameObjectsWithTag("gameMusic");
+ 		Destroy(music[1]);
+ 	}
+ 	
+ 	// Update is called once per frame
+ 	void Awake () {
+ 		DontDestroyOnLoad(transform.gameObject);
+ 	}
 }
