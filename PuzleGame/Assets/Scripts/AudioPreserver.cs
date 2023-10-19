@@ -8,7 +8,10 @@ public class AudioPreserver : MonoBehaviour
  
  	void Start(){
  		music = GameObject.FindGameObjectsWithTag("gameMusic");
- 		Destroy(music[1]);
+		if (music.Length > 1) {
+			print("duplicate music source found, destroying");
+			Destroy(music[1]);
+		}
  	}
  	
  	// Update is called once per frame
